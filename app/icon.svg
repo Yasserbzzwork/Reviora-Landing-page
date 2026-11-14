@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="reviora" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#300883"/>
+      <stop offset="1" stop-color="#20005b"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" rx="112" fill="#fff"/>
+  <g fill="url(#reviora)">
+    <path d="M45 105H394C482 105 535 148 535 217C535 283 493 320 427 331L555 475H431C399 475 376 465 355 443L180 253H390C417 253 438 239 438 217C438 195 419 181 392 181H126Z"/>
+    <path d="M100 260V430H280Z"/>
+  </g>
+</svg>
