@@ -52,6 +52,7 @@ Set `NEXT_PUBLIC_META_PIXEL_ID` to your real numeric Meta Pixel ID when availabl
 - `PageView`: once per page load.
 - `ViewContent`: once per page load for Reviora 150 ml.
 - `InitiateCheckout`: once per page load when a shopper clicks an order link or interacts with the order form.
+- `Lead`: only after the order form is successfully saved in Google Sheets, with the order reference as a stable event ID. Use this event for website lead campaign optimization.
 - `Purchase`: only after the server confirms the order was saved in Google Sheets. This measures a submitted cash-on-delivery order, not a collected payment. The order reference is used as the event ID; value and quantity come from the server. Delivery charges are excluded because they are not known yet.
 
 Events include a stable product ID (`reviora-shampoo-150ml`), quantity, value and `MAD` currency. Automatic event configuration and advanced matching are not enabled; customer names, phone numbers, cities and addresses are not included in event payloads. There is no `AddToCart` event because the storefront has no cart. Analytics errors cannot block checkout.

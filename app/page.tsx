@@ -35,6 +35,7 @@ export default function Home(){
    const result=await response.json();
    if(!response.ok||result.ok!==true||result.orderId!==attemptRef.current!.id){setStatus(result.error==='NOT_CONFIGURED'?t.unavailable:t.tryAgain);return;}
    setOrderId(result.orderId);
+   trackMetaEvent('Lead',productEvent(result.unitPrice,result.quantity),`lead-${result.orderId}`);
    trackMetaEvent('Purchase',productEvent(result.unitPrice,result.quantity),`purchase-${result.orderId}`);
   }catch{setStatus(t.tryAgain);}finally{submissionRef.current=false;setSubmitting(false);}
  }

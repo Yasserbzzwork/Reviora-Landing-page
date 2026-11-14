@@ -39,3 +39,12 @@ test('analytics failures never throw into checkout',()=>{
   const tracker=createMetaTracker('123456789012345',{fbq(){throw new Error('blocked');}},()=>{});
   assert.doesNotThrow(()=>tracker.track('Purchase',productEvent(179),'purchase-test'));
 });
+
+test('saved leads use stable order IDs and do not duplicate on retries',()=>{
+  const browser={};const tracker=createMetaTracker('123456789012345',browser,()=>{});
+  tracker.track('Lead',productEvent(179,1),'lead-order-one');
+  tracker.track('Lead',productEvent(179,1),'lead-order-one');
+  const events=browser.fbq.queue.filter(call=>call[2]==='Lead');
+  assert.equal(events.length,1);
+  assert.equal(events[0][4].eventID,'lead-order-one');
+});
